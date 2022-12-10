@@ -1,0 +1,423 @@
+* {
+    font-family: 'Oswald', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    /* background-color: red; */
+    max-width: 1280px; 
+    margin: auto;
+}
+.active {
+    color: #e62b4a !important;
+}
+
+
+.header {
+    background: transparent;
+    position: absolute;
+    padding: 15px 70px;
+    width: 100%;
+    border-bottom: 1px solid #fff;
+}
+
+.header .container {
+    display: flex;
+    /*Trục toạ độ mặc định display: flex sẽ là row*/
+    flex-direction: row; /* row */
+    /*Vị trí load của các item*/
+    /* justify-content: space-between; */
+    justify-content: space-between;
+    align-items: center;
+   
+}
+
+
+.header .container a.logo {
+    color: #fff;
+    font-size: 30px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.header .container .menu a{
+    color: #fff;
+    font-size: 17px;
+    text-decoration: none;
+    padding:0 15px;
+    /*Thuộc tính viết hoa tất cả chữ của văn bản*/
+    text-transform: uppercase; /*lowercase: viết thường*/
+}
+/*:hover là trạng thái khi 1 thẻ được rê chuột vào*/
+.header .container .menu a:hover{
+    color: red;
+    transition:color 0.3s;
+}
+/*
+    * max-width: Nếu không đủ 1280 px thì load bấy nhiêu, nếu lớn hơn 1280 px thì chỉ load 1280px thôi
+    * display: flex;
+    Đưa các div con lên 1 hàng 
+        + justify-content: Nội dung của các div con được load theo vị trí chỉ định
+        flex-start: load từ trái qua 
+        flex-end: load từ phải qua
+        center: load từ giữa ra
+        space-beetwen: Chia đôi phân nửa load bên trái, phân nửa load bên phải 
+        space-around: Chia đôi load từ giữa ra 2 bên
+*/
+
+
+/*---- CAROUSEL ----*/
+.carousel {
+    height: 700px;
+    background: url('../img/home_slider.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+}
+.carousel .container {
+    height: 100%; /*Lấy chiều cao của thẻ cha .section.carousel*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/*
+    :first-child : là chỉnh phần tử đầu tiên khớp với selector
+    :last-child: là chỉnh phần tử cuối cùng khớp selector
+    :nth-child(vị trí): chỉnh phần tử chỉ định tại vị trí cụ thể
+*/
+.carousel .container h1 {
+    color: #fff;
+    /*line-height: chỉnh khoảng cách giữa các dòng*/
+    line-height: 80px;
+}
+.carousel .container h1:first-child {
+    font-weight: 300;
+    line-height: 40px;
+}
+/*
+    select1,select2(Bất kể nằm ở đâu trên giao diện) {
+        áp dụng css
+    }
+*/
+.carousel .container h1:nth-child(2),.carousel .container h1:nth-child(3) {
+    font-weight: 700;
+    font-size: 75px;
+}
+.carousel .container a{
+    line-height: 50px;
+    text-decoration: none;
+    display: inline-block;
+    width: 150px;
+    background: #e62b4a;
+    text-align: center;
+    margin-top: 15px;
+    color: #fff;
+    text-transform: uppercase;
+    border:  1px solid #e62b4a;
+}
+
+.carousel .container a:hover{
+    background: #be243e;
+    transition: background 0.5s;
+    /* transition-duration: ; */
+}
+.carousel .container i {
+    color: #fff;
+    margin-top: 10px;
+    font-size: 50px;
+    /* animation-name: fadeDown;
+    animation-duration: 2s; */
+    animation: fadeDown 2s;
+    /*
+        animation-iteration-count: số lần thực hiện animation
+    */
+    animation-iteration-count: infinite;
+}
+
+@keyframes fadeDown {
+    from {
+        transform: translateY(0);
+        /*opacity: làm mờ phần tử html chạy từ 0.x -> 1*/
+        opacity: 1;
+    }
+    to {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+}
+
+
+/*----- SERVICES -----*/
+.services {
+    background-color: #000;
+    padding: 100px;
+    text-align: center;
+}
+
+.services .title-service {
+    font-size: 16px;
+    font-weight: 300;
+    color: #e62b4a; 
+}
+.services .title-desc {
+    font-size: 40px;
+    font-weight: 400;
+    color: #fff; 
+}
+.services .content {
+    font-size: 16px;
+    color: #888888;
+    font-weight: 700;
+    margin-top: 20px;
+}
+
+/* ---- services block item ----*/
+.services .flex-container {
+    display: flex;
+    align-items: center;
+}
+
+.services .flex-container .flex-item {
+    width: calc(100%/5);
+    height: 300px;
+    cursor: pointer; /*Hình ảnh của nháy chuột*/
+
+}
+.services .flex-container .flex-item .content {
+    background: #fff;
+    margin: 15px;
+    padding: 50px 30px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.services .flex-container .flex-item .content::after {
+    content: '';
+    width: 5px;
+    height: 0%;
+    background-color: red;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: height 0.5s;
+
+}
+
+.services .flex-container .flex-item .content:hover::after{
+    height: 100%;
+    transition: height 0.5s;
+} 
+
+
+
+.services .flex-container .flex-item .content i {
+    font-size: 50px;
+}
+.services .flex-container .flex-item .content h1 {
+    font-weight: 300;
+}
+
+/* ------------- porfolio -----------*/
+
+.portfolio {
+    background-color: #fff;
+}
+
+.portfolio .container {
+    padding-top: 50px;
+    text-align: center;
+}
+.portfolio .title-portfolio {
+    padding-bottom: 50px;
+}
+.portfolio .title-portfolio h1:nth-child(1){
+    font-size: 16px;
+    font-weight: 300;
+    color: #888888;
+}
+
+.portfolio .title-portfolio h1:nth-child(2){
+    font-size: 40px;
+    font-weight: 400;
+    color: #000;
+}
+.portfolio .title-portfolio p {
+    padding-top: 30px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #888888;
+}
+
+/*list chia theo grid*/
+.portfolio .list {
+    display: grid;
+    /*
+        Chia 1 hàng làm 3 phần tử mỗi phần tử chiếm 1/3 đơn vị
+    */
+    grid-template-columns: 1fr 1fr 1fr;
+    /*Khoảng cách giữa các ô với nhau*/
+    gap: 15px;
+    /* row-gap: ;
+    column-gap: ; */
+}
+
+.portfolio .list .item{
+ 
+}
+
+.portfolio .list .item .content {
+    position: relative;
+    overflow: hidden;
+}
+
+
+.portfolio .list .item .overlay{
+    background-color: rgba(255,0,0,0.3);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* transform: scale(0,0); */
+    transform: rotate(360deg);
+}
+
+.portfolio .list .item:hover .overlay {
+    /* transform: scale(1,1); */
+    transform: rotate(0deg);
+
+    transition: transform 0.5s;
+}
+
+/*nesting css -> scss*/
+.portfolio .list .item .overlay:hover{
+   
+    transition: transform 0.5s;
+
+}
+.portfolio .list .item .overlay a, .portfolio .list .item .overlay .item-content 
+{
+    transform: translateY(40px);
+    opacity: 0;
+}
+
+.portfolio .list .item .overlay:hover a, .portfolio .list .item .overlay:hover .item-content {
+    transform: translateY(0);
+    opacity: 1;
+    transition: all 1s;
+}
+
+
+.portfolio .list .item .overlay a {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    padding: 15px;
+    background: #fff;
+    width: 50px;
+    color: #000;
+    font-weight: bold;
+}
+
+.portfolio .list .item .overlay .item-content {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+}
+.portfolio .list .item .overlay .item-content .text-logo {
+    text-align: left;
+    font-size: 25px;
+    font-weight: 300;
+    color: #eee;
+}
+
+.portfolio .list .item .overlay .item-content h1:nth-child(2) {
+    color: #fff;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+
+.portfolio .list .item .content img{
+    /*Tương tự background-size:cover*/
+    object-fit: cover;
+    display: block;
+    width: 100%;
+    height: 400px;
+    filter: grayscale(100%) contrast(50%);
+}
+
+
+.blog {
+  
+}
+
+
+.blog .blog-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.blog .blog-list .item-1 {
+    /* 
+        grid-column: n/span m 
+        n: vị trí của cell đó trên cột
+        m: số lượng cột chiếm
+        grid-row: n/span m 
+        n: vị trí của cell đó trên dòng
+        m: số lượng dòng chiếm
+    */
+   grid-column: 1/span 2;
+   grid-row: 1/span 2;
+}
+
+.blog .blog-list .item-10  {
+    grid-column: 3/span 2;
+    grid-row: 3/span 2;
+}
+
+
+.blog .blog-item img {
+    width: 100%;
+    display: block;
+}
+
+
+
+
+
+/*Slick carousel*/
+/* html, body{
+    background-color: #e74c3c;
+  } */
+  /* .wrapper{
+    width:100%;
+    padding-top: 20px;
+    text-align:center;
+  } */
+  h2{
+    font-family:sans-serif;
+    color:#fff;
+  }
+  .carousel{
+    width:90%;
+    margin:0px auto;
+  }
+  .carousel-slider{
+    margin:10px;
+  }
+  .carousel-slider img{
+    width:100%;
+    border: 2px solid #fff;
+  }
+  /* .wrapper .slick-dots li button:before {
+    font-size:20px;
+    color:white;
+  } */
