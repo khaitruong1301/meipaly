@@ -52,6 +52,9 @@
           <a href="#">about us</a>
           <a href="#">contact</a>
         </nav>
+        <nav class="menu-mobile">
+          <i class="fa fa-bars"></i>
+        </nav>
         <!-- <div>trái</div>
         <div>phải</div> -->
       </div>
@@ -259,9 +262,79 @@
         </div>
       </div>
     </section>
-    <section class="statis"></section>
-    <section class="digital"></section>
-    <section class="contact"></section>
+    <section class="statis">
+      <main class="container-statis">
+        <div class="statis-flex">
+          <div class="statis-item">
+            <h3>8,705</h3>
+            <p>PROJECTS COMPLETED</p>
+          </div>
+          <div class="statis-item">
+            <h3>8,705</h3>
+            <p>PROJECTS COMPLETED</p>
+          </div>
+          <div class="statis-item">
+            <h3>8,705</h3>
+            <p>PROJECTS COMPLETED</p>
+          </div>
+          <div class="statis-item">
+            <h3>8,705</h3>
+            <p>PROJECTS COMPLETED</p>
+          </div>
+        </div>
+      </main>
+    </section>
+    <section class="digital">
+      <div class="container-digital">
+        <div class="digital-title">
+          <h3>HOW DO WE WORKS</h3>
+          <h1>DIGITAL EXPERIENCE</h1>
+          <p>
+            We are committed to providing our customers with exceptional service
+            while offering our employees the best training.
+          </p>
+        </div>
+        <div class="digital-video">
+          <video
+            controls
+            
+            poster="./img/home_slider.jpg"
+            width="1080"
+            height="720"
+         
+          >
+          <source src="./img/video.mp4"
+          type="video/mp4"> </video>
+          <iframe style="margin-top: 20px;" width="822" height="462" src="https://www.youtube.com/embed/bud8N4nNw-w" title="Khoa Pug Tự Kỷ Vì Đi Như Robot Sau Khi Kéo Chân! - Chia Sẻ Người Việt Bị Lừa Ở Campuchia!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <!-- <audio>
+            <source src=""> </audio>
+          </audio> -->
+        </video>
+        </div>
+      </div>
+    </section>
+    <section class="contact">
+      <div class="container-contact">
+        <div class="contact-title">
+          <h3>CONTACT</h3>
+          <p>Thank you for your interest in our website & our services. If you have any <br />
+            questions, please write us a message now!</p>
+        </div>
+      </div>
+      <div class="map-form">
+        <div class="map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.552235727103!2d106.66868521513892!3d10.768950762275518!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752ee0a9dcf347%3A0x22a1d70073564291!2zNDU5IFPGsCBW4bqhbiBI4bqhbmgsIFBoxrDhu51uZyAxMCwgUXXhuq1uIDEwLCBUaMOgbmggcGjhu5EgSOG7kyBDaMOtIE1pbmgsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1661777412447!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <form action="http://127.0.0.1:5501/index.html" method="post" class="contact-form">
+          <input class="username" placeholder="Username" />
+          <input class="email" placeholder="Email Address" />
+          <textarea class="question" placeholder="Ask a question">
+          </textarea>
+          <button type="submit">Submit</button>
+        </form>
+          
+      </div>
+    </section>
     <footer class="footer"></footer>
     <!--html từ thư viện-->
     <!-- <div class="carousel-slider">
@@ -300,5 +373,51 @@
         });
       });
     </script>
+
+
+<!-- Một số thẻ input thông dụng
+          input text: Dùng để nhập liệu thông tin : họ tên, số điện thoại, email ...
+          <input type="text" placeholder="nhập vào họ tên" /> <br />
+          input password: Dùng để nhập liệu thông tin tuy nhiên dữ liệu hiển thị ra là dấu * và không thể copy
+          <input type="password" placeholder="nhập vào mật khẩu" />  <br />
+          input radio: Chọn đúng sai hoặc giới tính ... chọn 1 trong nhiều lựa chọn - Các input radio sẽ cùng name => Khi tick vào radio này thì radio kia sẽ bỏ tick tự động
+          <input id="txtGioiTinh" class="class-radio" type="radio" name="gioiTinh" value="nam" /> <span>Nam</span>
+          <input type="radio" name="gioiTinh" value="nữ" /> <label>Nữ</label>
+          input checkbox: Tượng tự radio tuy nhiên cho phép lựa chọn nhiều giá trị cùng lúc
+          <p>Sở thích</p>
+          <input type="checkbox" name="soThich" value="Game" /> Game
+          <input type="checkbox" name="soThich" value="Đá bánh" /> Đá banh
+          <input type="checkbox" name="soThich" value="Bóng rổ" /> Bóng rổ
+          <br />
+          textarea: Thẻ cho phép nhập nhiều nội dung có thể xuống dòng
+          <textarea cols="30" rows="5"></textarea>
+          <br />
+          select: Thẻ có sẵn lựa chọn thay vì nhập liệu. Nếu không để giá trị value trong option thì value mặc định sẽ là phần html của option. Khi lựa chọn sẽ lấy ra giá trị value
+          <p>Lớp đăng ký</p>
+          <select>
+            <option value="FE">FrontEnd</option>
+            <option value="BE">BackEnd</option>
+            <option value="FS">Fullstack</option>
+          </select>
+          <br />
+          <select multiple>
+            <option value="FE">FrontEnd</option>
+            <option value="BE">BackEnd</option>
+            <option value="FS">Fullstack</option>
+          </select>
+          <br />
+
+          Thẻ upload: input type = file
+          <input type="file" accept="image/png, image/jpeg" />
+          <br />
+          Button: Thẻ kết thúc hành động nhập liệu. Mặc định type là submit
+          <button type="submit">Submit</button>
+          <button type="button">Button</button>
+
+        </form>
+        <button>+</button> -->
   </body>
 </html>
+
+
+
